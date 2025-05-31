@@ -1,0 +1,13 @@
+
+CREATE DATABASE IF NOT EXISTS facturer_db;
+USE facturer_db;
+
+CREATE TABLE IF NOT EXISTS Companies (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  address VARCHAR(255),
+  email VARCHAR(255),
+  phone VARCHAR(50),
+  createdAt DATETIME NOT NULL,
+  updatedAt DATETIME NOT NULL
+);

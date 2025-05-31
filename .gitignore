@@ -1,0 +1,13 @@
+# Node
+client/node_modules/
+server/node_modules/
+client/dist/
+server/.env
+.github/
+.vscode/
+# Build output
+coverage/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*

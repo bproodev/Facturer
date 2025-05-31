@@ -1,0 +1,28 @@
+{
+  "name": "facturer-server",
+  "version": "0.1.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "db:migrate": "sequelize db:migrate --config ./config/config.js",
+    "db:seed:all": "sequelize db:seed:all --config ./config/config.js",
+    "db:migrate:undo": "sequelize db:migrate:undo --config ./config/config.js",
+    "db:migrate:undo:all": "sequelize db:migrate:undo:all --config ./config/config.js",
+    "db:create": "sequelize db:create --config ./config/config.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0",
+    "mysql2": "^3.9.7",
+    "sequelize": "^6.37.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0",
+    "sequelize-cli": "^6.6.2"
+  }
+}
