@@ -26,7 +26,7 @@ Merci de votre intérêt pour contribuer à ce projet !
 
 Ouvrez une issue pour toute question ou clarification.
 
-Merci pour votre contribution!
+Merci pour votre contribution
 
 Happy Coding!
 
