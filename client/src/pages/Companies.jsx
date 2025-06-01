@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import AddCompanyForm from './AddCompanyForm';
+import { toast } from 'react-toastify';
 import { getCompanies } from '../api/company';
 import { useAuth } from '../hooks/useAuth';
 
@@ -7,27 +9,50 @@ const Companies = () => {
   const [companies, setCompanies] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [showAddForm, setShowAddForm] = useState(false);
+
+  const fetchCompanies = async () => {
+    if (!token) return;
+    setLoading(true);
+    setError(null);
+    try {
+      const data = await getCompanies(token);
+      setCompanies(data);
+    } catch (err) {
+      setError('Erreur lors du chargement des entreprises');
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
-    const fetchCompanies = async () => {
-      if (!token) return;
-      setLoading(true);
-      setError(null);
-      try {
-        const data = await getCompanies(token);
-        setCompanies(data);
-      } catch (err) {
-        setError('Erreur lors du chargement des entreprises');
-      } finally {
-        setLoading(false);
-      }
-    };
     fetchCompanies();
+    // eslint-disable-next-line
   }, [token]);
 
   return (
     <div className="p-8">
-      <h2 className="text-xl font-bold mb-4">Entreprises</h2>
+      <div className="flex items-center justify-between mb-4">
+        <h2 className="text-xl font-bold">Entreprises</h2>
+        <button
+          className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
+          onClick={() => setShowAddForm(true)}
+        >
+          Ajouter Entreprise
+        </button>
+      </div>
+      {showAddForm && (
+        <AddCompanyForm
+          onClose={(refresh = false, message = null, isError = false) => {
+            setShowAddForm(false);
+            if (refresh) fetchCompanies();
+            if (message) {
+              if (isError) toast.error(message);
+              else toast.success(message);
+            }
+          }}
+        />
+      )}
       {loading && <p>Chargement...</p>}
       {error && <p className="text-red-600">{error}</p>}
       {!loading && !error && (
