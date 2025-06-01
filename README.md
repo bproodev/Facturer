@@ -18,13 +18,12 @@ Ce projet est un monorepo open-source pour une application de gestion de facture
 
 ### 1. Laissez un Star (etoile) sur le projet
 ```bash
-git clone <repo-url>
-cd facturer
+En haut a l'angle droit du projet, vous allez voir un bouton "Star" cliquer dessus c'est comme Liker un projet
 ```
 ### 2. Forker le dépôt
 ```bash
-git clone <repo-url>
-cd facturer
+Toujours a cette angle droit en haut, juste a cote du boutton "Star" vous allez voir "Fork" cliquer dessus
+Ceci va creer une copie de ce projet dans votre github et dela vous pouvez travailler sans souci
 ```
 ### 3. Cloner le dépôt
 ```bash
